@@ -6,7 +6,13 @@ from .ai import AIRouter
 
 # Import command groups
 from .commands import sys_cmd, dev_cmd, ops_cmd, pkg_cmd, learn_cmd
+from .ui import GoTermixUI
 
+@cli.command()
+def ui():
+    """🎨 Launch Interactive UI Dashboard"""
+    app = GoTermixUI()
+    app.run()
 @click.group()
 @click.option('--verbose', '-v', is_flag=True, help='Enable verbose output')
 @click.option('--ai-model', type=click.Choice(['mistral', 'codestral', 'auto']), default=None)
